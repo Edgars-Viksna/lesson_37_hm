@@ -22,6 +22,21 @@ public class Main {
         forTask2.put("john", "zxc45");
         System.out.println(mapToString(forTask2));
 
+        System.out.println("--------- Task 3 ----------------");
+        List<Student> forTask3 = new ArrayList<>();
+        Student s1 = new Student("Boris", "Blau");
+        Student s2 = new Student("Celine", "Dionis");
+        Student s3 = new Student("Anna", "Blaukopf");
+        forTask3.add(s1);
+        forTask3.add(s1);
+        forTask3.add(s2);
+        forTask3.add(s3);
+        forTask3.add(s3);
+        forTask3.add(s3);
+        System.out.println(forTask3);
+
+        System.out.println(counter(forTask3));
+
 
     }
 
@@ -37,6 +52,15 @@ public class Main {
         List<String> result = new ArrayList<>();
         for (Map.Entry<String, String> entry : map.entrySet()) {
             result.add(new StringBuilder().append(entry.getKey()).append(":").append(entry.getValue()).toString());
+        }
+        return result;
+    }
+
+    public static Map<Student, Integer> counter(List<Student> list) {
+        Map<Student, Integer> result = new HashMap<>();
+        for (Student student : list) {
+            Integer value = result.getOrDefault(student, 0);
+            result.put(student, ++value);
         }
         return result;
     }
